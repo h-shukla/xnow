@@ -177,7 +177,7 @@ export const FixedCanvasContainer = () => {
             const maxScroll = document.body.scrollHeight - window.innerHeight;
 
             // Horizontal movement (optional)
-            const maxHorizontalMovement = window.innerWidth * 0.5;
+            const maxHorizontalMovement = window.innerWidth * 0.7;
             let horizontalOffset =
                 (scrollY / maxScroll) * maxHorizontalMovement;
             horizontalOffset = Math.min(

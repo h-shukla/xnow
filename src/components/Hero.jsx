@@ -4,30 +4,6 @@ import logolight from "../assets/logolight.png";
 export const HeroSection = () => {
     return (
         <div className="relative bg-gradient-to-br from-red-50 via-gray-50 to-white overflow-hidden">
-            <div className="absolute left-20 bottom-20 opacity-20">
-                <svg
-                    width="60"
-                    height="60"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <circle
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="#0F172A"
-                        strokeWidth="1.5"
-                    />
-                    <path
-                        d="M12 8V16M8 12H16"
-                        stroke="#0F172A"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                    />
-                </svg>
-            </div>
-
             {/* Notification popups */}
             <div className="absolute right-1/6 top-1/8 bg-white p-4 rounded-lg shadow-lg z-10">
                 <div className="flex items-center">
@@ -143,25 +119,32 @@ export const HeroSection = () => {
                         <p className="text-center text-gray-500 mb-8 font-medium">
                             Trusted by great companies worldwide
                         </p>
-                        <div className="flex flex-wrap justify-center items-center gap-12">
-                            {[
-                                "Pilot",
-                                "Next",
-                                "Athlete",
-                                "Aloha",
-                                "Walmar",
-                            ].map((company, index) => (
-                                <div
-                                    key={index}
-                                    className="opacity-40 hover:opacity-70 transition-opacity"
-                                >
-                                    <div className="flex items-center justify-center h-10 w-24">
-                                        <span className="font-bold text-gray-600">
-                                            {company}
-                                        </span>
+                        <div className="overflow-hidden">
+                            <div className="flex animate-marquee gap-12">
+                                {[
+                                    "Pilot",
+                                    "Next",
+                                    "Athlete",
+                                    "Aloha",
+                                    "Walmar",
+                                    "Pilot",
+                                    "Next",
+                                    "Athlete",
+                                    "Aloha",
+                                    "Walmar",
+                                ].map((company, index) => (
+                                    <div
+                                        key={index}
+                                        className="opacity-40 hover:opacity-70 transition-opacity"
+                                    >
+                                        <div className="flex items-center justify-center h-10 w-24">
+                                            <span className="font-bold text-gray-600">
+                                                {company}
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
