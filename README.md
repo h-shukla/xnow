@@ -14,5 +14,11 @@ https://crowdytheme.com/wp/sassly/mobileapps/
 -   [ ] Home page changes
     -   [x] Plans section needs change (auto adapt depending on number of items provided)
     -   [x] Title change for plans section to be catchier than high power vps solutions
+    -   [x] make the phone and character be on a stage
+    -   [ ] carousel next btn shouldn't change the inner display of the phone instead tilt and move the phone away
+    -   [ ] the character should be looking like it is moving the phone
+-   [ ] Character animation changes
+    -   [x] Character should always land on a surface when stops moving (SNAP THE SECTIONS in place)
+    -   [ ] Character movement on scroll broke
 
 # Rigged robot by joney_lol [CC-BY] via Poly Pizza

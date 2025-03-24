@@ -5,21 +5,18 @@ import {
 } from "@/context/CharacterContext";
 import { FixedCanvasContainer } from "@/components/ThreeJSCanvas";
 import { HeroSection } from "@/components/Hero";
-import XNowMailPricing from "@/components/XNowMailPricing";
 import LoadingIndicator from "@/components/LoadingIndicator";
 import XNowTestimonials from "@/components/XNowTestimonials";
 import XNowFAQs from "@/components/XNowFAQs";
+import PricingDisplay from "@/components/PricingDisplay";
 
 const Home = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Simulate loading delay (e.g., character and assets loading)
         const timer = setTimeout(() => {
             setLoading(false);
         }, 2500);
-
-        // Cleanup timeout if the component unmounts early
         return () => clearTimeout(timer);
     }, []);
 
@@ -29,13 +26,26 @@ const Home = () => {
 
     return (
         <CharacterProvider>
+            <FixedCanvasContainer />
             <div>
-                <FixedCanvasContainer />
-                <HeroSection />
-                <CharacterController />
-                <XNowMailPricing />
-                <XNowTestimonials />
-                <XNowFAQs />
+                <section className="snap-start">
+                    <HeroSection />
+                </section>
+                <section className="snap-start">
+                    <CharacterController />
+                </section>
+
+                <section className="snap-start">
+                    <PricingDisplay />
+                </section>
+
+                <section className="snap-start">
+                    <XNowTestimonials />
+                </section>
+
+                <section className="snap-start">
+                    <XNowFAQs />
+                </section>
             </div>
         </CharacterProvider>
     );

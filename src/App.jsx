@@ -5,15 +5,26 @@ import Footer from "./components/Footer";
 
 function App() {
     return (
-        <>
-            <BrowserRouter>
-                <Navbar />
+        <BrowserRouter>
+            <div className="snap-y snap-mandatory scroll-smooth h-screen overflow-y-scroll">
+                <header className="snap-start">
+                    <Navbar />
+                </header>
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route
+                        path="/"
+                        element={
+                            <section className="snap-start">
+                                <Home />
+                            </section>
+                        }
+                    />
                 </Routes>
-                <Footer />
-            </BrowserRouter>
-        </>
+                <footer className="snap-start">
+                    <Footer />
+                </footer>
+            </div>
+        </BrowserRouter>
     );
 }
 
