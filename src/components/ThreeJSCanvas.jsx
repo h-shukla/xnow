@@ -174,22 +174,28 @@ export const FixedCanvasContainer = () => {
             if (!containerRef.current) return;
 
             const scrollY = window.scrollY;
-            const maxScroll = document.body.scrollHeight - window.innerHeight;
+            const sectionHeight = window.innerHeight;
+            // Determine which 100vh section you are in:
+            const sectionIndex = Math.floor(scrollY / sectionHeight);
+            // How far into the current section (0 to 1)
+            const sectionProgress = (scrollY % sectionHeight) / sectionHeight;
 
-            // Horizontal movement (optional)
-            const maxHorizontalMovement = window.innerWidth * 0.7;
-            let horizontalOffset =
-                (scrollY / maxScroll) * maxHorizontalMovement;
-            horizontalOffset = Math.min(
-                horizontalOffset,
-                maxHorizontalMovement
-            );
+            // Define the maximum horizontal movement range
+            const maxHorizontalMovement = window.innerWidth * 0.6;
+            let horizontalOffset;
 
-            // Vertical offset (kept minimal to avoid clipping)
-            const maxVerticalMovement = 0;
-            let verticalOffset = (scrollY / maxScroll) * maxVerticalMovement;
+            if (sectionIndex % 2 === 0) {
+                // For even sections: move from left to right
+                horizontalOffset = sectionProgress * maxHorizontalMovement;
+            } else {
+                // For odd sections: move from right to left
+                horizontalOffset =
+                    maxHorizontalMovement -
+                    sectionProgress * maxHorizontalMovement;
+            }
 
-            containerRef.current.style.transform = `translate(${horizontalOffset}px, ${verticalOffset}px)`;
+            // If you have a vertical offset, you can keep that logic; here we keep it at 0
+            containerRef.current.style.transform = `translate(${horizontalOffset}px, 0)`;
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -201,7 +207,7 @@ export const FixedCanvasContainer = () => {
             ref={containerRef}
             className="fixed top-1/4 left-0 z-10 transition-transform duration-100"
         >
-            <div className="absolute w-64 h-64 rounded-full bg-red-200 opacity-30 top-10 left-10 blur-xl"></div>
+            <div className="absolute w-64 h-64 rounded-full bg-red-200 opacity-30 top-10 left-10 blur-xl  overflow-hidden"></div>
             <ThreeJSCanvas />
         </div>
     );

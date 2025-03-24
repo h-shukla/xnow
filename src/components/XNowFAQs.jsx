@@ -37,7 +37,7 @@ const XNowFAQs = () => {
     ];
 
     return (
-        <div className="min-h-screen w-full bg-gradient-to-b from-red-50 via-white to-red-50">
+        <div className="min-h-screen w-full bg-gradient-to-b from-red-50 via-white to-red-50 overflow-x-hidden">
             {/* ========== HERO SECTION ========== */}
             <section className="w-full py-16 md:py-24 relative overflow-hidden">
                 {/* Decorative elements */}
